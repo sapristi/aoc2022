@@ -1,3 +1,7 @@
 (executables
- (names day1 day2 day3 meili day4)
- (libraries core aoc))
+ (names day1 day2 day3 meili day4 day5 day6 day7 day8 day9 day10
+        day11
+ )
+ (libraries core aoc containers containers-data)
+ (preprocess (pps ppx_deriving.show))
+)

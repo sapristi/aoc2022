@@ -8,3 +8,4 @@ let read_lines filename =
   with End_of_file ->
     close_in chan;
     List.rev !lines
+

@@ -109,7 +109,7 @@ module Part1 = struct
       let current_path = List.rev current_path_rev in
       collapsed_names := List.concat [
           List.map (fun name -> (name, current_path)) names;
-          !collapsed_names 
+          !collapsed_names
         ]
 
     in
@@ -150,16 +150,12 @@ module Part1 = struct
     | None -> failwith "empty seq"
     | Some (elem, seq') -> find_min_seq seq' comp elem
 
-  (* let rec find_min list comp = *)
-  (*   List.fold_left (fun res item -> if comp res item < 0 then item else res) list *)
 
   let walk_p2 (collapsed_names: (string * tag list)  list) =
     let table = Hashtbl.create (List.length collapsed_names) in
     let dists = Hashtbl.create ((List.length collapsed_names)*(List.length collapsed_names)) in
     List.iteri (fun i (name, path) -> Hashtbl.add table name (path, i)) collapsed_names;
-    (* List.iter *)
-    (*   (fun (name1, path1) (name2, path2) -> Hashtbl.add dists (name1, name2) (distance path1 path2)) *)
-    (*   (("root", [])::collapsed_names) (("root", [])::collapsed_names); *)
+
 
     List.iter
       (fun (name1, path1)  ->
